@@ -1,2 +1,2 @@
 # LAHacks
-Vyom, Vicky, Erika
+Vyom, Vicky, Erika, Jonathan
