@@ -3,14 +3,148 @@
    <title>Translator!</title>
  </head>
  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #F6F6F6;
+    }
+
+    /* Container for two columns */
+    .container {
+        display: flex; /* Use flexbox */
+        justify-items: space-between, center; /* Distribute items evenly */
+        max-width: 500px; /* Set maximum width */
+        margin: 0 auto; /* Center container horizontally */
+        padding: 20px;
+        text-align: center;
+    }
     body{
       font-family: Lato, sans-serif;
       margin: 0;
       padding: 20px; 
-      width: 35em;
+      width: 28em;
+      height: 50em;
       justify-content: center;
     }
-    .btn{
+    .column-language-header{
+        width: 48%; 
+        padding: 20px;
+        float: left;
+        justify-content: center;
+        margin-left: 0.8em;
+        margin-top: 1em;
+    }
+    .column-language-select{
+        width: 48%; 
+        padding: 20px;
+        float: right;
+        justify-content: center;
+        margin-top: 1.3em;
+
+    }
+    select{
+      width: 100px;
+      font-family: Lato, sans-serif;
+    }
+
+    option{
+      width: 30px;
+    }
+
+    .dropdown-button{
+      background-color: #fff;
+      padding: 5px;
+      padding-inline: 30px;
+      border-width: 0.1px;
+      /* border-radius: 4px; */
+
+    }
+
+    .dropdown-content {
+        display: none;
+        position: relative;
+        background-color: #fff;
+        min-width: 120px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        left: 50%; /* Move the dropdown to the center of the column */
+        transform: translateX(-50%);
+    }
+
+    /* Style the links inside the dropdown */
+    .dropdown-content option {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        justify-content: center;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content option:hover {
+        background-color: #f1f1f1;
+        justify-content: center;
+        max-width: 20px;
+    }
+
+    /* Show the dropdown content when the dropdown button is clicked */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .column-volume-header{
+        width: 48%; 
+        padding: 20px;
+        float: left;
+        justify-content: center;
+        margin-left: 0.8em;
+    }
+    .column-volume-slider{
+        width: 48%; 
+        padding: 10px;
+        float: right;
+        justify-content: center;
+    }
+
+    .slider-container {
+            width: 100px;
+            margin: 20px auto;
+        }
+
+        /* Style the slider */
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none; /* Remove default styling */
+            appearance: none;
+            height: 9px;
+            outline: none;
+            border-radius: 5px;
+            background: #d3d3d3; /* Default background color for slider track */
+        }
+
+        /* Style the slider track */
+        input[type=range]::-webkit-slider-runnable-track {
+            height: 10px;
+            border-radius: 5px;
+            background: #4CAF50; /* Color of the filled portion */
+        }
+
+        /* Style the slider thumb (handle) */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Remove default styling */
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #FFFFFF;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 1px solid #4CAF50; 
+            /* margin-bottom: 3em; */
+        }
+
+
+    /* .btn{
       background-color: #8faab3;
       font-size: 18px;
       color: #fff;
@@ -22,64 +156,167 @@
       transition: background-color 0.3s;
       justify-content: center;
     }
-    .button:hover {
-        background-color: #0056b3;
+    .btn:hover {
+        background-color: #d5d5d5;
     }
-    .image{
+    .globe-image{
       justify-content: center;
-      margin-top: 5em;
+      margin-top: 1em;
       margin-bottom: 5em;
-      margin-left: 4em;
+      margin-right: 3em; 
     }
 
     .toggle-checkbox {
-            display: none;
-        }
+        display: none;
+    }
 
-        /* Style the toggle switch */
-        .toggle-label {
-            display: inline-block;
-            width: 60px;
-            height: 30px;
-            background-color: #A9A9A9;
-            border-radius: 15px;
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            transition: transform 2s ease;
-        }
+    .toggle-label {
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+        background-color: #A9A9A9;
+        border-radius: 15px;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        transition: transform 2s ease;
+    }
 
-        /* Style the toggle switch thumb */
-        .toggle-thumb {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            background-color: #fff;
-            border-radius: 50%;
-            transition: transform 2s ease;
-        }
+    .toggle-thumb {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 50%;
+        transition: transform 2s ease;
+    }
 
-        /* Move the thumb to the right when checkbox is checked */
-        .toggle-checkbox:checked + .toggle-label .toggle-thumb {
-            left: 30px;
-        }
-        .toggle-checkbox:checked + .toggle-label {
-          background-color: #8faab3;
-        }
+    .toggle-checkbox:checked + .toggle-label .toggle-thumb {
+        left: 30px;
+    }
+    .toggle-checkbox:checked + .toggle-label {
+      background-color: #8faab3;
+    } */
  </style>
+
  <body>
-    <img class="image" src="./images/globe.png" id="logoImage">
-    <button type="button" class="btn btn-primary" id="Language">Select Language</button>
-    <button type="button" class="btn btn-primary" id="Volume">Volume</button>
-    <button type="button" class="btn btn-primary" id="Voice">Voice</button>
+    <img class="globe-image" src="./images/globe.png" id="logoImage">
+    <!-- <button type="button" class="btn btn-primary" for="toggle" id="Language">Select Language</button>
+    <button type="button" class="btn btn-primary" for="toggle" id="Volume">Volume</button>
+    <button type="button" class="btn btn-primary" for="toggle" id="Voice">Voice</button> -->
     <!-- <button type="button" class="btn btn-primary" id="Captions">Captions</button> -->
-    <input type="checkbox" class="toggle-checkbox" id="toggle">
-    
-    <label for="toggle" class="toggle-label">
-        <div class="toggle-thumb"></div>
-    </label>
-    <script src="popup.js"></script>
- </body>
+  <div class="column-language-header">
+      <h2>Language</h2>
+  </div>
+  <!-- Second column -->
+  <div class="column-language-select">
+    <div class="dropdown">
+      <select>
+        <div class="dropdown-content">
+          <option value="Select">Select</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Cantonese">Cantonese</option>
+          <option value="Danish">Danish</option>
+          <option value="Dutch">Dutch</option>
+          <option value="English">English</option>
+          <option value="Finnish">Finnish</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
+          <option value="Hindi">Hindi</option>
+          <option value="Italian">Italian</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Korean">Korean</option>
+          <option value="Mandarin">Mandarin</option>
+          <option value="Norwegian Bokmål">Norwegian Bokmal</option>
+          <option value="Polish">Polish</option>
+          <option value="Portuguese (Portugal)">Portuguese (Portugal)</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Swedish">Swedish</option>
+          <option value="Turkish">Turkish</option>
+      </div>
+    </select>
+  </div>
+</div>
+  <script src="popup.js">
+    var dropdown = document.getElementById('dropdown-sel');
+
+    var button = document.getElementById('dropdown-button');
+
+    dropdown.addEventListener('change', function() {
+    var selectedValue = dropdown.value;
+
+    if (selectedValue === 'Arabic') {
+    button.textContent = 'Arabic';
+    } else if (selectedValue === 'Select') {
+        button.textContent = '';
+    } else if (selectedValue === 'Danish') {
+        button.textContent = 'Danish';
+    } else if (selectedValue === 'German') {
+        button.textContent = 'German';
+    } else if (selectedValue === 'English') {
+        button.textContent = 'English';
+    } else if (selectedValue === 'Mandarin') {
+        button.textContent = 'Mandarin';
+    } else if (selectedValue === 'Spanish') {
+        button.textContent = 'Spanish';
+    } else if (selectedValue === 'French') {
+        button.textContent = 'French';
+    } else if (selectedValue === 'Italian') {
+        button.textContent = 'Italian';
+    } else if (selectedValue === 'Japanese') {
+        button.textContent = 'Japanese';
+    } else if (selectedValue === 'Hindi') {
+        button.textContent = 'Hindi';
+    } else if (selectedValue === 'Korean') {
+        button.textContent = 'Korean';
+    } else if (selectedValue === 'Norwegian Bokmål') {
+        button.textContent = 'Norwegian Bokmål';
+    } else if (selectedValue === 'Dutch') {
+        button.textContent = 'Dutch';
+    } else if (selectedValue === 'Polish') {
+        button.textContent = 'Polish';
+    } else if (selectedValue === 'Portuguese (Portugal)') {
+        button.textContent = 'Portuguese (Portugal)';
+    } else if (selectedValue === 'Swedish') {
+        button.textContent = 'Swedish';
+    } else if (selectedValue === 'Turkish') {
+        button.textContent = 'Turkish';
+    } else if (selectedValue === 'Cantonese') {
+        button.textContent = 'Cantonese';
+    } else if (selectedValue === 'Finnish') {
+        button.textContent = 'Finnish';
+    } else {
+        button.textContent = '';
+    }
+      });
+  </script>
+  <hr>
+  <div class="column-volume-header">
+    <h2>Volume</h2>
+  </div>
+  <!-- Second column -->
+  <div class="column-volume-slider">
+    <div class="slider-container">
+      <!-- Volume slider -->
+      <input type="range" min="0" max="100" value="50" id="volumeSlider">
+    </div>
+  </div>
+  <script>
+    // Get the volume slider element
+    var volumeSlider = document.getElementById('volumeSlider');
+
+    // Add event listener for input event on the volume slider
+    volumeSlider.addEventListener('input', function() {
+        // Get the current volume value
+        var volume = volumeSlider.value;
+
+        // Perform actions with the volume value (e.g., adjust volume)
+        console.log('Volume:', volume);
+        volumeSlider.style.background = 'linear-gradient(to right, #4CAF50 0%, #4CAF50 ' + volume + '%, #d3d3d3 ' + volume + '%, #d3d3d3 100%)';
+
+    });
+</script>
+  </body>
 </html>
