@@ -1,21 +1,51 @@
 import boto3
+from playsound import playsound
 from translate import translate
 
+ACCESS_KEY = 'AKIA4MTWIE2XZQEQ2Q6I'
+SECRET_KEY = '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'
 
-poly = boto3.client('polly')
+language_dict = {
+    'Arabic': 'arb',
+    'Chinese': 'cmn-CN',
+    'Danish': 'da-DK',
+    'German': 'de-DE',
+    'English': 'en-US',
+    'Spanish': 'es-ES',
+    'French': 'fr-FR',
+    'Italian': 'it-IT',
+    'Japanese': 'ja-JP',
+    'Hindi': 'hi-IN',
+    'Korean': 'ko-KR',
+    'Norwegian Bokmål': 'nb-NO',
+    'Dutch': 'nl-NL',
+    'Polish': 'pl-PL',
+    'Portuguese (Portugal)': 'pt-PT',
+    'Swedish': 'sv-SE',
+    'Turkish': 'tr-TR',
+    'Cantonese': 'yue-CN',
+    'Finnish': 'fi-FI',
+}
 
-'''
-def play_sound(text):
-    response = poly.synthesize_speech(text=text, VoiceId='Joey', LanguageCode='es-ES', OutputFormat='mp3')
-    body = response['AudioStream'].read()
-  '''
+voices = {'Male': 'Joey', 'Female': 'Joanna'}
+poly = boto3.client('polly', region_name='us-east-1', aws_access_key_id=ACCESS_KEY,
+                        aws_secret_access_key=SECRET_KEY)
 
-while (True):
-    # generate audio from text
-    print("Start typing")
-    inp_lang = "english"
-    out_lang = "chinese"
+def play_sound(text, language, voice):
+    response = poly.synthesize_speech(Text=text, OutputFormat="mp3",
+                                       VoiceId=voices[voice], LanguageCode=language_dict[language], Engine='neural')
+    if "AudioStream" in response:
+        with response["AudioStream"] as stream:
+            output_file = "speech.mp3"
+            try:
+                # Open a file for writing the output as a binary stream
+                with open(output_file, "wb") as file:
+                    file.write(stream.read())
+            except IOError as error:
+                # Could not write to file, exit gracefully
+                print(error)
+    else:
+        # The response didn't contain audio data, exit gracefully
+        print("Could not stream audio")
 
-    text_prompt = translate(inp_lang, out_lang, input())
-
-    print(text_prompt)
+    playsound(output_file)
