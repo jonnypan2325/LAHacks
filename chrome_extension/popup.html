@@ -2,12 +2,84 @@
  <head>
    <title>Translator!</title>
  </head>
+ <style>
+    body{
+      font-family: Lato, sans-serif;
+      margin: 0;
+      padding: 20px; 
+      width: 35em;
+      justify-content: center;
+    }
+    .btn{
+      background-color: #8faab3;
+      font-size: 18px;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      margin: 1em;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      justify-content: center;
+    }
+    .button:hover {
+        background-color: #0056b3;
+    }
+    .image{
+      justify-content: center;
+      margin-top: 5em;
+      margin-bottom: 5em;
+      margin-left: 4em;
+    }
+
+    .toggle-checkbox {
+            display: none;
+        }
+
+        /* Style the toggle switch */
+        .toggle-label {
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            background-color: #A9A9A9;
+            border-radius: 15px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 2s ease;
+        }
+
+        /* Style the toggle switch thumb */
+        .toggle-thumb {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 2s ease;
+        }
+
+        /* Move the thumb to the right when checkbox is checked */
+        .toggle-checkbox:checked + .toggle-label .toggle-thumb {
+            left: 30px;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+          background-color: #8faab3;
+        }
+ </style>
  <body>
-     <img src="./images/globe.png" id="logoImage">
-     <button id="sampleSecond" value="0.1">Sample Second</button>
-     <button id="min15" value="15">15 Minutes</button>
-     <button id="min30" value="30">30 Minutes</button>
-     <button id="cancelAlarm">Cancel Alarm</button>
-   <script src="popup.js"></script>
+    <img class="image" src="./images/globe.png" id="logoImage">
+    <button type="button" class="btn btn-primary" id="Language">Select Language</button>
+    <button type="button" class="btn btn-primary" id="Volume">Volume</button>
+    <button type="button" class="btn btn-primary" id="Voice">Voice</button>
+    <!-- <button type="button" class="btn btn-primary" id="Captions">Captions</button> -->
+    <input type="checkbox" class="toggle-checkbox" id="toggle">
+    
+    <label for="toggle" class="toggle-label">
+        <div class="toggle-thumb"></div>
+    </label>
+    <script src="popup.js"></script>
  </body>
 </html>

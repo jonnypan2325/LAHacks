@@ -1,11 +1,11 @@
 console.log("This is a popup!")
 
-document.getElementById('min30').addEventListener('click', function() {
+document.getElementById('Voice').addEventListener('click', function() {
     // Get the current active tab
     console.log("twice")
 });
 
-document.getElementById('min15').addEventListener('click', function() {
+document.getElementById('Volume').addEventListener('click', function() {
     // Get the current active tab
     console.log("once")
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
@@ -22,3 +22,35 @@ document.getElementById('min15').addEventListener('click', function() {
       }
     });
   });
+
+// Function to run a script when the toggle is checked
+function runTranscript() {
+    // Check if the toggle is checked
+    const toggle = document.getElementById('toggle');
+    if (toggle.checked) {
+        console.log("Toggle is on, running transcript.js");
+
+        // Create a new script element
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'transcript.js';  // Ensure `transcript.js` is in your project directory or has a correct path
+        
+        // Append the script to the document head to execute it
+        document.head.appendChild(script);
+
+    } else {
+        console.log("Toggle is off, removing transcript.js");
+
+        // Find the script element and remove it (optional, if you want to unload it when toggle is off)
+        const loadedScript = document.querySelector('script[src="transcript.js"]');
+        if (loadedScript) {
+            document.head.removeChild(loadedScript);
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add event listener to the toggle checkbox
+    const toggle = document.getElementById('toggle');
+    toggle.addEventListener('change', runTranscript);
+});

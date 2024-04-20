@@ -1,9 +1,9 @@
+console.log("working!!")
+
 const { SpeechClient } = require('@google-cloud/speech').v1p1beta1;
 const { Transform } = require('stream');
 
 const client = new SpeechClient();
-
-console.log("working!!")
 
 // Define a Transform stream to convert audio stream chunks to buffers
 class AudioBufferStream extends Transform {
