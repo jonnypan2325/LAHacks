@@ -13,6 +13,11 @@ chrome.tabCapture.capture({ audio: true }, (stream) => {
     mediaRecorder.ondataavailable = (e) => {
       chunks.push(e.data);
     };
+
+    // Create a Blob when recording stops
+    mediaRecorder.onstop = () => {
+      const blob = new Blob(chunks, { type: 'audio/wav' }); // Blob with MIME type for WAV audio
+    };
  
     mediaRecorder.onstop = async () => {
       const blob = new Blob(chunks, { type: "audio/wav" });
