@@ -27,20 +27,37 @@
       height: 50em;
       justify-content: center;
     }
-    .column-language-header{
+ 
+    .column-language-header-inp{
         width: 48%; 
         padding: 20px;
         float: left;
         justify-content: center;
         margin-left: 0.8em;
-        margin-top: 1em;
+        margin-top: 0.75em;
     }
-    .column-language-select{
+    .column-language-select-inp{
         width: 48%; 
         padding: 20px;
         float: right;
         justify-content: center;
-        margin-top: 1.3em;
+        margin-top: 1em;
+
+    }
+    .column-language-header-out{
+        width: 48%; 
+        padding: 20px;
+        float: left;
+        justify-content: center;
+        margin-left: 0.8em;
+        margin-top: 0.75em;
+    }
+    .column-language-select-out{
+        width: 48%; 
+        padding: 20px;
+        float: right;
+        justify-content: center;
+        margin-top: 0.75em;
 
     }
     select{
@@ -60,7 +77,6 @@
       /* border-radius: 4px; */
 
     }
-
     .dropdown-content {
         display: none;
         position: relative;
@@ -99,17 +115,22 @@
         float: left;
         justify-content: center;
         margin-left: 0.8em;
+        margin-top: 0.75em;
     }
     .column-volume-slider{
         width: 48%; 
         padding: 10px;
         float: right;
         justify-content: center;
+        border-width: 0.2em;
+        border-color: black;
     }
 
     .slider-container {
             width: 100px;
             margin: 20px auto;
+            border-width: 0.2em;
+          border-color: black;
         }
 
         /* Style the slider */
@@ -120,14 +141,18 @@
             height: 9px;
             outline: none;
             border-radius: 5px;
-            background: #d3d3d3; /* Default background color for slider track */
+            background: #d3d3d3; 
+            border-width: 0.2em;
+            border-color: black;
         }
 
         /* Style the slider track */
         input[type=range]::-webkit-slider-runnable-track {
             height: 10px;
             border-radius: 5px;
-            background: #4CAF50; /* Color of the filled portion */
+            background: #99DAFA; 
+            border-width: 0.2em;
+            border-color: black;
         }
 
         /* Style the slider thumb (handle) */
@@ -136,91 +161,106 @@
             appearance: none;
             width: 20px;
             height: 20px;
-            background: #FFFFFF;
+            background: #ffffff;
             cursor: pointer;
             border-radius: 50%;
-            border: 1px solid #4CAF50; 
-            /* margin-bottom: 3em; */
+            border: 1px solid #99DAFA; 
+            margin-top: -0.38em;
         }
 
+        .column-voice-header{
+        width: 48%; 
+        padding: 20px;
+        float: left;
+        justify-content: center;
+        margin-left: 0.8em;
+        margin-top: .75em;
+        }
+        .column-voice-select{
+            width: 48%; 
+            padding: 20px;
+            float: right;
+            justify-content: center;
+            margin-top: 0.75em;
+            margin-bottom: 1em;
+        }
 
-    /* .btn{
-      background-color: #8faab3;
-      font-size: 18px;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      margin: 1em;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      justify-content: center;
-    }
-    .btn:hover {
-        background-color: #d5d5d5;
-    }
     .globe-image{
       justify-content: center;
-      margin-top: 1em;
-      margin-bottom: 5em;
-      margin-right: 3em; 
-    }
+      /* margin-top: 1em;
+      margin-bottom: 1em; */
+      margin-left: -1em; 
+      margin-bottom: -2.43em;
+      margin-top: -4.5em;
+    } 
 
     .toggle-checkbox {
-        display: none;
-    }
+            display: none;
+            justify-content: center;
 
-    .toggle-label {
-        display: inline-block;
-        width: 60px;
-        height: 30px;
-        background-color: #A9A9A9;
-        border-radius: 15px;
-        position: relative;
-        cursor: pointer;
-        overflow: hidden;
-        transition: transform 2s ease;
-    }
+        }
 
-    .toggle-thumb {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 30px;
-        height: 30px;
-        background-color: #fff;
-        border-radius: 50%;
-        transition: transform 2s ease;
-    }
+        /* Style the toggle switch */
+        .toggle-label {
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            position: relative;
+            justify-self: center;
+            cursor: pointer;
+            background-color: #ccc;
+            border-radius: 15px;
+            overflow: hidden; /* Ensure the thumb stays within the switch */
+            margin-top: -2em;
+            margin-left: -2.3em;
 
-    .toggle-checkbox:checked + .toggle-label .toggle-thumb {
-        left: 30px;
-    }
-    .toggle-checkbox:checked + .toggle-label {
-      background-color: #8faab3;
-    } */
+        }
+
+        /* Style the toggle switch thumb */
+        .toggle-thumb {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-thumb {
+            left: 30px; 
+        }
+        .toggle-checkbox:checked + .toggle-label{
+          background-color: #99DAFA;
+        }
  </style>
 
+
+
+
  <body>
-    <img class="globe-image" src="./images/globe.png" id="logoImage">
-    <!-- <button type="button" class="btn btn-primary" for="toggle" id="Language">Select Language</button>
-    <button type="button" class="btn btn-primary" for="toggle" id="Volume">Volume</button>
-    <button type="button" class="btn btn-primary" for="toggle" id="Voice">Voice</button> -->
-    <!-- <button type="button" class="btn btn-primary" id="Captions">Captions</button> -->
-  <div class="column-language-header">
+<div id="popup-content">
+    <img class="globe-image" src="./images/LingoLiveLogo.png" id="logoImage">
+    <input type="checkbox" class="toggle-checkbox" id="toggle">
+  <label for="toggle" class="toggle-label">
+      <div class="toggle-thumb"></div>
+  </label>
+  
+    <div class="column-language-header-inp">
       <h2>Language</h2>
+      <h3>Input</h3>
   </div>
   <!-- Second column -->
-  <div class="column-language-select">
+  <div class="column-language-select-inp">
     <div class="dropdown">
       <select>
-        <div class="dropdown-content">
-          <option value="Select">Select</option>
+        <div class="dropdown-content-">
+          <option value="English">English</option>
           <option value="Arabic">Arabic</option>
           <option value="Cantonese">Cantonese</option>
           <option value="Danish">Danish</option>
           <option value="Dutch">Dutch</option>
-          <option value="English">English</option>
           <option value="Finnish">Finnish</option>
           <option value="French">French</option>
           <option value="German">German</option>
@@ -239,24 +279,55 @@
     </select>
   </div>
 </div>
+<div class="column-language-header-out">
+  <h2>Language</h2>
+  <h3>Output</h3>
+</div>
+<div class="column-language-select-out">
+  <div class="dropdown">
+    <select>
+      <div class="dropdown-content-">
+        <option value="English">English</option>
+        <option value="Arabic">Arabic</option>
+        <option value="Cantonese">Cantonese</option>
+        <option value="Danish">Danish</option>
+        <option value="Dutch">Dutch</option>
+        <option value="Finnish">Finnish</option>
+        <option value="French">French</option>
+        <option value="German">German</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Italian">Italian</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Korean">Korean</option>
+        <option value="Mandarin">Mandarin</option>
+        <option value="Norwegian Bokmål">Norwegian Bokmal</option>
+        <option value="Polish">Polish</option>
+        <option value="Portuguese (Portugal)">Portuguese (Portugal)</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Swedish">Swedish</option>
+        <option value="Turkish">Turkish</option>
+    </div>
+  </select>
+</div>
+</div>
   <script src="popup.js">
     var dropdown = document.getElementById('dropdown-sel');
 
     var button = document.getElementById('dropdown-button');
 
     dropdown.addEventListener('change', function() {
-    var selectedValue = dropdown.value;
+    var selectedValue = 'English';
 
-    if (selectedValue === 'Arabic') {
-    button.textContent = 'Arabic';
+    if (selectedValue === 'English') {
+    button.textContent = 'English';
     } else if (selectedValue === 'Select') {
         button.textContent = '';
     } else if (selectedValue === 'Danish') {
         button.textContent = 'Danish';
     } else if (selectedValue === 'German') {
         button.textContent = 'German';
-    } else if (selectedValue === 'English') {
-        button.textContent = 'English';
+    } else if (selectedValue === 'Arabic') {
+        button.textContent = 'Arabic';
     } else if (selectedValue === 'Mandarin') {
         button.textContent = 'Mandarin';
     } else if (selectedValue === 'Spanish') {
@@ -291,6 +362,8 @@
         button.textContent = '';
     }
       });
+
+
   </script>
   <hr>
   <div class="column-volume-header">
@@ -318,5 +391,22 @@
 
     });
 </script>
+<div class="column-voice-header">
+  <h2>Voice</h2>
+</div>
+<div class="column-voice-select">
+  <div class="dropdown">
+    <select>
+      <div class="dropdown-content">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+    </div>
+  </select>
+  </div>
+</div>
+<button id="closeButton">Close</button>
+
+</div>
+
   </body>
 </html>

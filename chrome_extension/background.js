@@ -34,3 +34,31 @@ chrome.action.onClicked.addListener(async (tab) => {
     });
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  var popupContent = document.getElementById('popup-content');
+  var closeButton = document.getElementById('closeButton');
+
+  // Show the popup
+  popupContent.style.display = 'block';
+
+  // Add event listener to the close button
+  // closeButton.addEventListener('click', function() {
+  //     // Hide the popup
+  //     popupContent.style.display = 'none';
+  // });
+
+  // Prevent the default behavior of closing the popup when clicking outside of it
+  closeButton.addEventListener('click', function(event) {
+      if (!popupContent.contains(event.target)) {
+          event.preventDefault();
+      }
+  });
+
+  // Prevent the default behavior of closing the popup when pressing the Escape key
+  document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+          event.preventDefault();
+      }
+  });
+});

@@ -4,24 +4,25 @@
     "description": "Become Mr. Worldwide with LingoLive!",
     "version": "1.0",
     "icons": {
-      "16": "/images/16plogo.png",
-      "32": "/images/32plogo.png",
-      "48": "/images/48plogo.png",
-      "128": "/images/128plogo.png"
+      "16": "/images/16pLL.png",
+      "32": "/images/32pLL.png",
+      "48": "/images/48pLL.png",
+      "128": "/images/128pLL.png"
     },
     "background": {
-        "service_worker": "background.js"
+      "service_worker": "service-worker.js",
+      "type": "module"
       },
       "action": {
-        "default_icon": {
-          "16": "/images/16plogo.png",
-          "32": "/images/32plogo.png",
-          "48": "/images/48plogo.png",
-          "128": "/images/128plogo.png"
+        "default_icon": { 
+          "16": "/images/16pLL.png",
+          "32": "/images/32pLL.png",
+          "48": "/images/48pLL.png",
+          "128": "/images/128pLL.png"
         },
         "default_popup": "popup.html"
       },
-      "permissions": ["activeTab", "scripting", "contextMenus", "audioCapture"],
+      "permissions": ["activeTab", "scripting", "contextMenus", "audioCapture", "storage"],
       "commands": {
         "_execute_action": {
           "suggested_key": {
