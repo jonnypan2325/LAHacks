@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('selectedLanguage', selectedValue1);
 
         console.log('Selected value saved to local storage:', selectedValue1);
+
+        chrome.storage.sync.set({ "starting_language": selectedValue1 }, function(){
+            console.log('Saved your "starting language" as ', selectedValue1);
+        });
     });
 
     var savedValue = localStorage.getItem('selectedLanguage');
@@ -39,8 +43,12 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('selectedLanguageOut', selectedValueOut);
 
         console.log('Selected value for output saved to local storage:', selectedValueOut);
-    });
 
+        chrome.storage.sync.set({ "output_language": selectedValueOut }, function(){
+            console.log('Saved your "output language" as ', selectedValueOut);
+        });
+    });
+    
     var savedValueOut = localStorage.getItem('selectedLanguageOut');
 
     if (savedValueOut) {
@@ -78,6 +86,10 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('selectedVoiceOut', selectedValueOut);
 
         console.log('Selected value for output saved to local storage:', selectedValueOut);
+
+        chrome.storage.sync.set({ "gender": selectedValueOut }, function(){
+            console.log('Saved your "gender" as ', selectedValueOut);
+        });
     });
 
     var savedValueOut = localStorage.getItem('selectedVoiceOut');
