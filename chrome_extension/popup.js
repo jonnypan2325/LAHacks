@@ -1,56 +1,99 @@
-console.log("This is a popup!")
+document.addEventListener('DOMContentLoaded', function() {
+    var saveToggle = document.getElementById('saveToggle');
 
-document.getElementById('Voice').addEventListener('click', function() {
-    // Get the current active tab
-    console.log("twice")
+    chrome.storage.local.get('toggleState', function(result) {
+        if (result.toggleState) {
+            saveToggle.checked = true;
+        }
+    });
+
+    saveToggle.addEventListener('change', function() {
+        chrome.storage.local.set({ 'toggleState': saveToggle.checked });
+    });
 });
 
-document.getElementById('Volume').addEventListener('click', function() {
-    // Get the current active tab
-    console.log("once")
-    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-      // Check if the tabs array is not empty
-      if (tabs && tabs.length > 0) {
-        console.log("works??")
-        // Execute transcribe.js script in the current active tab
-        chrome.scripting.executeScript({
-          target: { tabId: tabs[0].id }, // Use the tabId of the current active tab
-          files: ['transcribe.js']
+document.addEventListener('DOMContentLoaded', function() {
+    var dropdownSelect1 = document.querySelector('.column-language-select-inp select');
+
+    dropdownSelect1.addEventListener('change', function(event) {
+        var selectedValue1 = event.target.value;
+
+        localStorage.setItem('selectedLanguage', selectedValue1);
+
+        console.log('Selected value saved to local storage:', selectedValue1);
+
+        // Store data
+        chrome.storage.local.set({ userName: 'erika' }, () => {
+            console.log('Data saved');
         });
-      } else {
-        console.error("No active tab found.");
-      }
-    });
-  });
 
-// Function to run a script when the toggle is checked
-function runTranscript() {
-    // Check if the toggle is checked
-    const toggle = document.getElementById('toggle');
-    if (toggle.checked) {
-        console.log("Toggle is on, running transcript.js");
-
-        // Create a new script element
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = 'transcript.js';  // Ensure `transcript.js` is in your project directory or has a correct path
+        // Retrieve data
+        chrome.storage.local.get(['userName'], (result) => {
+            console.log('User name:', result.userName);
+});
         
-        // Append the script to the document head to execute it
-        document.head.appendChild(script);
+    });
 
-    } else {
-        console.log("Toggle is off, removing transcript.js");
+    var savedValue = localStorage.getItem('selectedLanguage');
 
-        // Find the script element and remove it (optional, if you want to unload it when toggle is off)
-        const loadedScript = document.querySelector('script[src="transcript.js"]');
-        if (loadedScript) {
-            document.head.removeChild(loadedScript);
-        }
+    if (savedValue) {
+        dropdownSelect1.value = savedValue;
     }
-}
+});
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Add event listener to the toggle checkbox
-    const toggle = document.getElementById('toggle');
-    toggle.addEventListener('change', runTranscript);
+document.addEventListener('DOMContentLoaded', function() {
+    var dropdownSelectOut = document.querySelector('.column-language-select-out select');
+
+    dropdownSelectOut.addEventListener('change', function(event) {
+        var selectedValueOut = event.target.value;
+
+        localStorage.setItem('selectedLanguageOut', selectedValueOut);
+
+        console.log('Selected value for output saved to local storage:', selectedValueOut);
+    });
+
+    var savedValueOut = localStorage.getItem('selectedLanguageOut');
+
+    if (savedValueOut) {
+        dropdownSelectOut.value = savedValueOut;
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var volumeSlider = document.getElementById('volumeSlider');
+
+    volumeSlider.addEventListener('input', function() {
+        var volume = volumeSlider.value;
+
+        localStorage.setItem('volumeLevel', volume);
+
+        volumeSlider.style.background = 'linear-gradient(to right, #4CAF50 0%, #4CAF50 ' + volume + '%, #d3d3d3 ' + volume + '%, #d3d3d3 100%)';
+
+        console.log('Volume level saved to local storage:', volume);
+    });
+
+    var savedVolume = localStorage.getItem('volumeLevel');
+
+    if (savedVolume) {
+        volumeSlider.value = savedVolume;
+        volumeSlider.style.background = 'linear-gradient(to right, #4CAF50 0%, #4CAF50 ' + savedVolume + '%, #d3d3d3 ' + savedVolume + '%, #d3d3d3 100%)';
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var dropdownSelectOut = document.querySelector('.column-voice-select select');
+
+    dropdownSelectOut.addEventListener('change', function(event) {
+        var selectedValueOut = event.target.value;
+
+        localStorage.setItem('selectedVoiceOut', selectedValueOut);
+
+        console.log('Selected value for output saved to local storage:', selectedValueOut);
+    });
+
+    var savedValueOut = localStorage.getItem('selectedVoiceOut');
+
+    if (savedValueOut) {
+        dropdownSelectOut.value = savedValueOut;
+    }
 });
