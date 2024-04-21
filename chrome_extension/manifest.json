@@ -15,12 +15,12 @@
     "content_scripts":[
       {
         "matches": ["<all_urls>"],
-        "js": ["transcript.js"]
+        "js": ["transcribe.js"]
       }
     ],
     "web_accessible_resources": [
       {
-        "resources": ["transcript.js"],
+        "resources": ["transcibe.js"],
         "matches": ["<all_urls>"]
       }
     ],
