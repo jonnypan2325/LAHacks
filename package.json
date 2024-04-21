@@ -1,0 +1,22 @@
+{
+  "name": "lingolive",
+  "version": "1.0.0",
+  "description": "LingoLive",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonnypan2325/LingoLive.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonnypan2325/LingoLive/issues"
+  },
+  "homepage": "https://github.com/jonnypan2325/LingoLive#readme",
+  "dependencies": {
+    "@google-cloud/speech": "^6.5.0"
+  }
+}
