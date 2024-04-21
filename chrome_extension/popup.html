@@ -1,7 +1,9 @@
+<!DOCTYPE html>
 <html>
- <head>
-   <title>Translator!</title>
- </head>
+<head>
+    <title>Translator!</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
  <style>
     * {
         margin: 0;
@@ -34,7 +36,7 @@
         float: left;
         justify-content: center;
         margin-left: 0.8em;
-        margin-top: 0.75em;
+        margin-top: 2em;
     }
     .column-language-select-inp{
         width: 48%; 
@@ -77,7 +79,7 @@
       /* border-radius: 4px; */
 
     }
-    .dropdown-content {
+    .dropdown-content-inp {
         display: none;
         position: relative;
         background-color: #fff;
@@ -89,7 +91,7 @@
     }
 
     /* Style the links inside the dropdown */
-    .dropdown-content option {
+    .dropdown-content-inp option {
         color: black;
         padding: 12px 16px;
         text-decoration: none;
@@ -98,14 +100,46 @@
     }
 
     /* Change color of dropdown links on hover */
-    .dropdown-content option:hover {
+    .dropdown-content-inp option:hover {
         background-color: #f1f1f1;
         justify-content: center;
         max-width: 20px;
     }
 
     /* Show the dropdown content when the dropdown button is clicked */
-    .dropdown:hover .dropdown-content {
+    .dropdown:hover .dropdown-content-inp {
+        display: block;
+    }
+
+    .dropdown-content-out {
+        display: none;
+        position: relative;
+        background-color: #fff;
+        min-width: 120px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        left: 50%; /* Move the dropdown to the center of the column */
+        transform: translateX(-50%);
+    }
+
+    /* Style the links inside the dropdown */
+    .dropdown-content-out option {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        justify-content: center;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content-out option:hover {
+        background-color: #f1f1f1;
+        justify-content: center;
+        max-width: 20px;
+    }
+
+    /* Show the dropdown content when the dropdown button is clicked */
+    .dropdown:hover .dropdown-content-out {
         display: block;
     }
 
@@ -242,10 +276,10 @@
  <body>
 <div id="popup-content">
     <img class="globe-image" src="./images/LingoLiveLogo.png" id="logoImage">
-    <input type="checkbox" class="toggle-checkbox" id="toggle">
-  <label for="toggle" class="toggle-label">
-      <div class="toggle-thumb"></div>
-  </label>
+    <input type="checkbox" class="toggle-checkbox" id="saveToggle">
+      <label for="saveToggle" class="toggle-label">
+          <div class="toggle-thumb"></div>
+      </label>
   
     <div class="column-language-header-inp">
       <h2>Language</h2>
@@ -255,7 +289,7 @@
   <div class="column-language-select-inp">
     <div class="dropdown">
       <select>
-        <div class="dropdown-content-">
+        <div class="dropdown-content-inp">
           <option value="English">English</option>
           <option value="Arabic">Arabic</option>
           <option value="Cantonese">Cantonese</option>
@@ -286,7 +320,7 @@
 <div class="column-language-select-out">
   <div class="dropdown">
     <select>
-      <div class="dropdown-content-">
+      <div class="dropdown-content-out">
         <option value="English">English</option>
         <option value="Arabic">Arabic</option>
         <option value="Cantonese">Cantonese</option>
@@ -369,23 +403,17 @@
   <div class="column-volume-header">
     <h2>Volume</h2>
   </div>
-  <!-- Second column -->
   <div class="column-volume-slider">
     <div class="slider-container">
-      <!-- Volume slider -->
       <input type="range" min="0" max="100" value="50" id="volumeSlider">
     </div>
   </div>
   <script>
-    // Get the volume slider element
     var volumeSlider = document.getElementById('volumeSlider');
 
-    // Add event listener for input event on the volume slider
     volumeSlider.addEventListener('input', function() {
-        // Get the current volume value
         var volume = volumeSlider.value;
 
-        // Perform actions with the volume value (e.g., adjust volume)
         console.log('Volume:', volume);
         volumeSlider.style.background = 'linear-gradient(to right, #4CAF50 0%, #4CAF50 ' + volume + '%, #d3d3d3 ' + volume + '%, #d3d3d3 100%)';
 
@@ -397,14 +425,13 @@
 <div class="column-voice-select">
   <div class="dropdown">
     <select>
-      <div class="dropdown-content">
+      <div class="dropdown-content-voice">
         <option value="Female">Female</option>
         <option value="Male">Male</option>
     </div>
   </select>
   </div>
 </div>
-<button id="closeButton">Close</button>
 
 </div>
 

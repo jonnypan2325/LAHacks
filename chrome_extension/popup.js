@@ -1,43 +1,88 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var popupContent = document.getElementById('popup-content');
-    var closeButton = document.getElementById('closeButton');
+    var saveToggle = document.getElementById('saveToggle');
 
-    // Show the popup
-    popupContent.style.display = 'block';
-
-    // Add event listener to the close button
-    closeButton.addEventListener('click', function() {
-        // Hide the popup
-        popupContent.style.display = 'none';
-    });
-
-    // Prevent the default behavior of closing the popup when clicking outside of it
-    document.addEventListener('click', function(event) {
-        if (!popupContent.contains(event.target)) {
-            event.preventDefault();
+    chrome.storage.local.get('toggleState', function(result) {
+        if (result.toggleState) {
+            saveToggle.checked = true;
         }
     });
 
-    // Prevent the default behavior of closing the popup when pressing the Escape key
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            event.preventDefault();
-        }
+    saveToggle.addEventListener('change', function() {
+        chrome.storage.local.set({ 'toggleState': saveToggle.checked });
     });
 });
 
-function monitorCheckbox() {
-    var checkbox = document.getElementById('toggle');
-    
-    // Check the state of the checkbox
-    if (checkbox.checked) {
-        console.log('Checkbox is checked');
-        // Perform actions when the checkbox is checked
-    } else {
-        console.log('Checkbox is not checked');
-        // Perform actions when the checkbox is not checked
-    }
-}
+document.addEventListener('DOMContentLoaded', function() {
+    var dropdownSelect1 = document.querySelector('.column-language-select-inp select');
 
-// Run the function every 1000 milliseconds (1 second)
-setInterval(monitorCheckbox, 1000);
+    dropdownSelect1.addEventListener('change', function(event) {
+        var selectedValue1 = event.target.value;
+
+        localStorage.setItem('selectedLanguage', selectedValue1);
+
+        console.log('Selected value saved to local storage:', selectedValue1);
+    });
+
+    var savedValue = localStorage.getItem('selectedLanguage');
+
+    if (savedValue) {
+        dropdownSelect1.value = savedValue;
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var dropdownSelectOut = document.querySelector('.column-language-select-out select');
+
+    dropdownSelectOut.addEventListener('change', function(event) {
+        var selectedValueOut = event.target.value;
+
+        localStorage.setItem('selectedLanguageOut', selectedValueOut);
+
+        console.log('Selected value for output saved to local storage:', selectedValueOut);
+    });
+
+    var savedValueOut = localStorage.getItem('selectedLanguageOut');
+
+    if (savedValueOut) {
+        dropdownSelectOut.value = savedValueOut;
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var volumeSlider = document.getElementById('volumeSlider');
+
+    volumeSlider.addEventListener('input', function() {
+        var volume = volumeSlider.value;
+
+        localStorage.setItem('volumeLevel', volume);
+
+        volumeSlider.style.background = 'linear-gradient(to right, #4CAF50 0%, #4CAF50 ' + volume + '%, #d3d3d3 ' + volume + '%, #d3d3d3 100%)';
+
+        console.log('Volume level saved to local storage:', volume);
+    });
+
+    var savedVolume = localStorage.getItem('volumeLevel');
+
+    if (savedVolume) {
+        volumeSlider.value = savedVolume;
+        volumeSlider.style.background = 'linear-gradient(to right, #4CAF50 0%, #4CAF50 ' + savedVolume + '%, #d3d3d3 ' + savedVolume + '%, #d3d3d3 100%)';
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var dropdownSelectOut = document.querySelector('.column-voice-select select');
+
+    dropdownSelectOut.addEventListener('change', function(event) {
+        var selectedValueOut = event.target.value;
+
+        localStorage.setItem('selectedVoiceOut', selectedValueOut);
+
+        console.log('Selected value for output saved to local storage:', selectedValueOut);
+    });
+
+    var savedValueOut = localStorage.getItem('selectedVoiceOut');
+
+    if (savedValueOut) {
+        dropdownSelectOut.value = savedValueOut;
+    }
+});
