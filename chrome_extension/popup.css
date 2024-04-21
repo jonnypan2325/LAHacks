@@ -1,0 +1,45 @@
+body > .scaffold > :is(top-nav, navigation-rail, side-nav, footer),
+main > :not(:last-child),
+main > :last-child > navigation-tree,
+main .toc-container {
+  display: none;
+}
+
+main > :last-child {
+  margin-top: min(10vmax, 20rem);
+  margin-bottom: min(10vmax, 20rem);
+}
+
+.toggle-button {
+  width: 50px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 34px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+.toggle-button::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
+
+.toggle-button.active {
+  background-color: #2196F3;
+}
+
+.toggle-button.active::before {
+  transform: translateX(26px);
+}
+
+#popup-content {
+  display: none;
+}
