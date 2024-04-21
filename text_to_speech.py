@@ -1,9 +1,14 @@
 import boto3
 from playsound import playsound
-from translate import translate
+import os
+from dotenv import find_dotenv, load_dotenv
 
-ACCESS_KEY = 'AKIA4MTWIE2XZQEQ2Q6I'
-SECRET_KEY = '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'
+dotenv_path = find_dotenv()
+
+load_dotenv(dotenv_path)
+
+ACCESS_KEY = os.getenv('BOTO_ACCESS_KEY')
+SECRET_KEY = os.getenv('BOTO_SECRET_KEY')
 
 language_dict = {
     'Arabic': 'arb',

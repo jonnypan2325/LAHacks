@@ -6,7 +6,16 @@ import google.generativeai as genai
 from IPython.display import display
 from IPython.display import Markdown
 
-GOOGLE_API_KEY = "AIzaSyA3jzmpZumOcoKP410N_WfonXtVfEkoNPU"
+import os
+from dotenv import find_dotenv, load_dotenv
+
+dotenv_path = find_dotenv()
+
+load_dotenv(dotenv_path)
+
+
+
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 
 genai.configure(api_key=GOOGLE_API_KEY)
 def to_markdown(text):
