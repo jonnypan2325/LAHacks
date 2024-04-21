@@ -1,6 +1,6 @@
 {
-    "manifest_version": 2,
-    "name": "Translate",
+    "manifest_version": 3,
+    "name": "Lingo Live",
     "description": "Become Mr. Worldwide with LingoLive!",
     "version": "1.0",
     "icons": {
@@ -11,21 +11,29 @@
     },
     "background": {
       "scripts": ["background.js"]
+    },
+    "content_scripts":[
+      {
+        "matches": ["<all_urls>"],
+        "js": ["transcript.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": ["transcript.js"],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "browser_action": {
+      "default_icon": { 
+        "16": "/images/16pLL.png",
+        "32": "/images/32pLL.png",
+        "48": "/images/48pLL.png",
+        "128": "/images/128pLL.png"
       },
-      "minimum_chrome_version": "102",
-      "omnibox": {
-        "keyword": "api"
+      "default_popup": "popup.html"
       },
-      "browser_action": {
-        "default_icon": { 
-          "16": "/images/16pLL.png",
-          "32": "/images/32pLL.png",
-          "48": "/images/48pLL.png",
-          "128": "/images/128pLL.png"
-        },
-        "default_popup": "popup.html"
-      },
-      "permissions": ["activeTab", "scripting", "contextMenus", "storage"],
+      "permissions": ["activeTab", "scripting", "contextMenus", "storage", "audioCapture", "tabs"],
       "commands": {
         "_execute_action": {
           "suggested_key": {
