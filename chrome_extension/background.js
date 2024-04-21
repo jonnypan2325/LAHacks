@@ -11,3 +11,8 @@ setInterval(function() {
     retrieveData();
 }, 1000);
 
+// var audio = new Audio();
+
+// audio.src = chrome.runtime.getURL('tts/speech.mp3');
+
+// audio.play();

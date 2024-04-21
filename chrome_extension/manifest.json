@@ -1,5 +1,5 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "Lingo Live",
     "description": "Become Mr. Worldwide with LingoLive!",
     "version": "1.0",
@@ -10,19 +10,10 @@
       "128": "/images/128pLL.png"
     },
     "background": {
-      "scripts": ["background.js"]
+      "script": "background.js"
     },
-    "content_scripts":[
-      {
-        "matches": ["<all_urls>"],
-        "js": ["transcribe.js"]
-      }
-    ],
     "web_accessible_resources": [
-      {
-        "resources": ["transcibe.js"],
-        "matches": ["<all_urls>"]
-      }
+      "tts/speech.mp3"
     ],
     "browser_action": {
       "default_icon": { 

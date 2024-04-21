@@ -1,14 +1,42 @@
+// document.addEventListener('DOMContentLoaded', function() {
+//     var saveToggle = document.getElementById('saveToggle');
+
+//     chrome.storage.local.get('toggleState', function(result) {
+//         if (result.toggleState) {
+//             saveToggle.checked = true;
+//         }
+//     });
+
+//     saveToggle.addEventListener('change', function() {
+//         chrome.storage.local.set({ 'toggleState': saveToggle.checked });
+//     });
+// });
+
 document.addEventListener('DOMContentLoaded', function() {
     var saveToggle = document.getElementById('saveToggle');
+    var audio = document.getElementById('audioPlayer');
+    // var audio = new Audio(chrome.runtime.getURL('https://stream.antenne.de/80er-kulthits?icy=https'));
+    audio.load();
+
+    function toggleAudioPlayback() {
+        if (saveToggle.checked) {
+            audio.play();
+            console.log("played")
+        } else {
+            audio.pause();
+        }
+    }
 
     chrome.storage.local.get('toggleState', function(result) {
         if (result.toggleState) {
             saveToggle.checked = true;
-        }
+            toggleAudioPlayback(); 
+            }
     });
 
     saveToggle.addEventListener('change', function() {
         chrome.storage.local.set({ 'toggleState': saveToggle.checked });
+        toggleAudioPlayback(); 
     });
 });
 

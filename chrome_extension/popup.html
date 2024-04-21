@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>LingoLive!</title>
@@ -43,7 +42,7 @@
         padding: 20px;
         float: right;
         justify-content: center;
-        margin-top: 1em;
+        margin-top: 2em;
 
     }
     .column-language-header-out{
@@ -261,6 +260,7 @@
 
  <body>
 <div id="popup-content">
+    <audio id="audioPlayer" src="https://stream.antenne.de/80er-kulthits?icy=https" controls autoplay></audio>
     <img class="globe-image" src="./images/LingoLiveLogo.png" id="logoImage">
     <input type="checkbox" class="toggle-checkbox" id="saveToggle">
       <label for="saveToggle" class="toggle-label">
@@ -381,10 +381,7 @@
         button.textContent = '';
     }
       });
-
-
   </script>
-  <hr>
   <div class="column-volume-header">
     <h2>Volume</h2>
   </div>
