@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "lingolive",
+  "private_key_id": "6427d04cb9454121373e70a1c8348637a23b0440",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDkHtFPcAVG8CUT\n4VNwXti3/pWLtDb/MVB+LRFkUUKK8H/fZC9icG/Yibymupo4C11iDamPk9hFNioK\nkzKB/fxrRsBtLBPZnfwjI7ft8GbW5ke02oLD7Rt8Lya0XZRYg6JspbrjvXk75y/A\nY043wEyzz5TyUhxtdeQzmyvAgTa/VHhZNwT9UUl4MG+gtUOHKIpfmgBDkddDh8Ma\nwtERrqofjoq27D582qGm64HTt7bt0pqE/j3BNc/GiYl75eBjWcd4BKCZ9HGNJtno\noaRnkhyyGFytThD+/HURV3LDYlylVAS+RLXnYIlwcc/YTh45XZZEO9FKnrjuEjhQ\n64Fgb/0BAgMBAAECggEACGOBuvQZnZQzKNn+YYF7Yri/8xU7eILtvNYXb6L1WXqi\nmSpr+6i61DGseE0gYrM4SeTKuXbsWw802JK1JsaaQ6+kX99hE32Vyg0ENIHEpl5t\ngJ8Qc/gCLLznJXbTf7XHgUtO5hUPoj5MKTz9oVs29t3JUmfml7fgHm20XC3kP4Df\n7h3cfvexo3ZK0KNVMOVqMkXbwO27L1AFnwngR80w3xOJzUo0YsZ6lklTI/O3+9gf\nY/4AF5G6oo9ohh5kvl2AIbOHuGQKb9v8LbnJkxGOU3jPM3IxPLRYE/bIBm8YDfRz\nk0jND4/1i6Vy12NQMO0IFjxTWB3+EyVkr2TVzsJNyQKBgQDx0IxF3pLi7nbwba4n\nKPADhJ0Teo8zGpcisLMHmVZy9Lv96+yD/Ca1Y8N0RyZO+fJOCEjxMVHaCYcrkKIf\nKeobU2lw90+Rk5I3CJZskPGSoeg/ZAZ2YKacm1zgVv6qVXMYCPzFRUnf4/ggW+Pe\nGOG3XCaT+aDlURXoVxZcXrJf0wKBgQDxgJ243v04hsH3IjqKmrREmtKlG0hP62oM\nOa1IjF7xPlL84Kr/BPdWMVH3UaDr7eqT24ZWzigiUlsOFrgVsrfaHdgB96YPyU9f\nxbQwT9Cd7JanxnnhsYAKJBhQ3DsRKji3MwKlLOvXsR+OQVaJm8lOhQnP28pkzori\nDn2zY+E/WwKBgQDIaXuYfLtocRMKeRyZQAiMIeC9QBpm1GbmTWRTq/ZGGCemb136\nlYTPWPuo5z8MvYLgwWUS4TlhZ/wrUxfKlEZ+l0cQZSgBEzlfezKQkCBm0uFViGUC\nv1/W87yqAe/W5DMbfHdiV+a+NIZ06zOT4zNPcIRYp899vxJVGbhinelgGQKBgHRk\nyp9pSZ3OxPk5FAHtYeiWveM5bPanvWq6+Zs3nCKlKRYbqg5S9GokRx7txqMu/ZnZ\nebuojItOKfh2Vq6OfjGvpIX+N5jwK0M7ZAbM0PzsJAgkjmWKSO2aS+Xc3tL9CGyz\nNxkot1ozUcQcFXspDDK9x+bYRYmkSid9WHP3NX51AoGBAOzOkqRUGA49iz/7r8P+\nLZmdIs8a/YSAHHyNV61XYDUCXU061HdrJUdv0PUZUHKyU2WPoAImtqFvxhLF+9+3\n2x8GHITUteb3js36oRoTunZJ5npsn4MfWIbSd7mGxthCD+SpSTrLgj1D/X34pY4z\nLL0b61+WDxVgIb5iPFPdKMTv\n-----END PRIVATE KEY-----\n",
+  "client_email": "lingolive@lingolive.iam.gserviceaccount.com",
+  "client_id": "117859184392074404128",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lingolive%40lingolive.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

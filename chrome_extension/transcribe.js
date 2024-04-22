@@ -1,3 +1,5 @@
+console.log("working!!")
+
 const { SpeechClient } = require('@google-cloud/speech').v1p1beta1;
 const { Transform } = require('stream');
 
@@ -47,7 +49,7 @@ async function transcribeStreaming(projectId, audioStream) {
 }
 
 async function main() {
-    const stream = await navigator.mediaDevices.getDisplayMedia({ audio: true, video: true });
+    const stream = await navigator.mediaDevices.getUserMedia ({ audio: true, video: true });
     transcribeStreaming('LingoLive', stream);
   }
   

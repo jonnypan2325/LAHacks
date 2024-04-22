@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
         chrome.storage.sync.set({ "starting_language": selectedValue1 }, function(){
             console.log('Saved your "starting language" as ', selectedValue1);
         });
-    });
+});
+        
 
     var savedValue = localStorage.getItem('selectedLanguage');
 
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dropdownSelect1.value = savedValue;
     }
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
     var dropdownSelectOut = document.querySelector('.column-language-select-out select');
